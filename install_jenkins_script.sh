@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SRE=`cat /var/lib/jenkins/secrets/initialAdminPassword`
+
 # Install on Jenkins Master Node
 yum remove -y java
 yum install -y vim wget epel-release curl java-11-openjdk-devel
@@ -18,9 +20,4 @@ firewall-cmd --zone=public --add-port=8080/tcp --permanent
 
 sudo firewall-cmd --reload
 
-cat /var/lib/jenkins/secrets/initialAdminPassword
-
-
-# Install on Jenkins Slave Node
-yum remove -y java
-yum install -y epel-release java-11-openjdk-devel
+echo "Jenkins password is $SRE"
