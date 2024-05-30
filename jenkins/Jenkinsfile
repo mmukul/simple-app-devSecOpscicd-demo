@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven "MAVEN_HOME"
+    }
+
     stages {
         stage ('Initialize Environment') {
             steps {
